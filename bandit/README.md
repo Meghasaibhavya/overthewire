@@ -58,3 +58,32 @@ The password for the next level is stored somewhere on the server and has all of
 
 <img width="762" height="108" alt="image" src="https://github.com/user-attachments/assets/f27a805c-f988-40cd-a74b-9dc6f2fbda79" />
 
+## bandit7 to bandit8
+
+The password for the next level is stored in the file data.txt next to the word millionth
+
+<img width="503" height="72" alt="image" src="https://github.com/user-attachments/assets/85e111e9-be3c-4fa3-89f2-c5a861ae26e0" />
+
+## bandit8 to bandit9
+
+The password for the next level is stored in the file data.txt and is the only line of text that occurs only once
+
+<img width="422" height="93" alt="image" src="https://github.com/user-attachments/assets/50d59197-521f-4355-865f-acb2aa7f3c3e" />
+
+## bandit9 to bandit10
+
+The password for the next level is stored in the file data.txt in one of the few human-readable strings, preceded by several ‘=’ characters.
+
+<img width="607" height="137" alt="image" src="https://github.com/user-attachments/assets/4de3015f-4ded-4102-8b74-964434aeab3f" />
+
+## bandit10 to bandit11
+
+The password for the next level is stored in the file data.txt, which contains base64 encoded data
+
+<img width="766" height="127" alt="image" src="https://github.com/user-attachments/assets/b9d54a9f-961d-4eae-bb5f-45e4ccd0657b" />
+
+## bandit11 to bandit12
+
+The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
+
+<img width="676" height="81" alt="image" src="https://github.com/user-attachments/assets/35f07887-6159-40ab-b7f8-b158c1efb054" />
