@@ -92,6 +92,18 @@ The password for the next level is stored in the file data.txt, where all lowerc
 
 The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. Or better, use the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv (read the manpages!)
 
+<img width="581" height="195" alt="Image" src="https://github.com/user-attachments/assets/a568ba15-a61d-4014-a94b-1c35a93110e5" />
 
+<img width="630" height="256" alt="Image" src="https://github.com/user-attachments/assets/e1bb3967-3f91-4fda-bc9d-f2499d2b9650" />
+
+<img width="573" height="217" alt="Image" src="https://github.com/user-attachments/assets/981c2aa4-65bd-412e-a588-dc5324bc634a" />
+
+<img width="582" height="158" alt="Image" src="https://github.com/user-attachments/assets/0200cc60-b6a8-4eb0-b060-cfb5d8e2b2cd" />
+
+<img width="1367" height="381" alt="Image" src="https://github.com/user-attachments/assets/50f9a09d-118d-4039-97d6-31ceb56bdf71" />
+
+<img width="1335" height="213" alt="Image" src="https://github.com/user-attachments/assets/8d4f7f75-2100-4cd7-9563-452e264bc171" />
+
+<img width="533" height="180" alt="Image" src="https://github.com/user-attachments/assets/49238f4b-5d7e-480a-b967-c03061871656" />
 
 ## bandit13 to 14
