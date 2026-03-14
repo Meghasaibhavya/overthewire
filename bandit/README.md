@@ -107,3 +107,23 @@ The password for the next level is stored in the file data.txt, which is a hexdu
 <img width="533" height="180" alt="Image" src="https://github.com/user-attachments/assets/49238f4b-5d7e-480a-b967-c03061871656" />
 
 ## bandit13 to 14
+
+The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Look at the commands that logged you into previous bandit levels, and find out how to use the key for this level.
+
+<img width="649" height="258" alt="Image" src="https://github.com/user-attachments/assets/044e29dc-cb83-49ef-a7a0-addc638b2a24" />
+
+<img width="698" height="262" alt="Image" src="https://github.com/user-attachments/assets/366ef92b-1081-47a2-8c48-d43162cedf89" />
+
+<img width="455" height="68" alt="Image" src="https://github.com/user-attachments/assets/bf2e2921-8e93-47a4-8995-6d3b6b1da71a" />
+
+## bandit14 to 15
+
+<img width="352" height="148" alt="Image" src="https://github.com/user-attachments/assets/07809e8d-a057-434a-b784-a24beac8cc2b" />
+
+## bandit15 to 16
+
+<img width="722" height="275" alt="Image" src="https://github.com/user-attachments/assets/88cd77c4-63e9-4612-a649-c4c1e495222b" />
+
+<img width="574" height="174" alt="Image" src="https://github.com/user-attachments/assets/1ac5875b-8ab7-4876-97e9-baec1352f4f4" />
+
+## bandit16 to 17
