@@ -49,7 +49,7 @@ A collection of solutions and technical notes for the Bandit wargame, focusing o
 * **Command:** `grep "millionth" data.txt`
 <img width="503" height="72" alt="image" src="https://github.com/user-attachments/assets/85e111e9-be3c-4fa3-89f2-c5a861ae26e0" />
 
-## 🟢 Bandit 8 → Bandit 9
+## Bandit 8 → Bandit 9
 **Objective:** Find the only unique line of text in a file.
 * **Command:** `sort data.txt | uniq -u`
 * **Concept:** `uniq` only works on sorted data.
@@ -151,117 +151,129 @@ A collection of solutions and technical notes for the Bandit wargame, focusing o
 <img width="574" height="174" alt="Image" src="https://github.com/user-attachments/assets/1ac5875b-8ab7-4876-97e9-baec1352f4f4" />
 
 ## Bandit 16 → Bandit 17
-The credentials for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL/TLS and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
-
+**Objective:** Scan a port range (31000–32000) to find an SSL service that returns credentials.
+* **Process:** Performed service reconnaissance via Nmap to identify ports speaking SSL/TLS.
+  
 <img width="617" height="221" alt="Screenshot 2026-04-20 141534" src="https://github.com/user-attachments/assets/6bca23b7-9d25-45ac-a30b-f18259a85093" />
-
+<br>
 <img width="960" height="732" alt="Screenshot 2026-04-20 143143" src="https://github.com/user-attachments/assets/87dbbbe6-b21d-46c9-a1ea-05204cc308ea" />
 
 ## Bandit 17 → Bandit 18
-There are 2 files in the homedirectory: passwords.old and passwords.new. The password for the next level is in passwords.new and is the only line that has been changed between passwords.old and passwords.new
-
+**Objective:** Isolate the only modified line between `passwords.old` and `passwords.new`.
+* **Concept:** Utilizing the `diff` utility to identify content changes between two files.
+  
 <img width="709" height="193" alt="Screenshot 2026-04-20 143900" src="https://github.com/user-attachments/assets/34c4b55d-5a88-4258-bc36-1c84c35786de" />
 
 ## Bandit 18 → Bandit 19
-The password for the next level is stored in a file readme in the homedirectory. Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.
-
-
+**Objective:** Bypass a modified `.bashrc` that triggers a logout upon login.
+* **Concept:** Executing non-interactive commands directly via SSH to read the file before the shell environment terminates.
+  
 <img width="615" height="302" alt="Screenshot 2026-04-20 144636" src="https://github.com/user-attachments/assets/06114a00-bc5b-4996-84eb-0e8fc4464eef" />
-
-
+<br>
 <img width="621" height="294" alt="Screenshot 2026-04-20 144645" src="https://github.com/user-attachments/assets/a978ea22-36cc-4268-96b8-0b3c05b83120" />
 
 ## Bandit 19 → Bandit 20
-To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.
-
+**Objective:** Utilize a SetUID binary to escalate privileges and read a protected file.
+* **Concept:** Understanding Linux SetUID bits, which execute a file with the owner's permissions.
+  
 <img width="299" height="84" alt="Screenshot 2026-04-20 144934" src="https://github.com/user-attachments/assets/583f3ec2-9682-46db-84f9-a2a9322810f5" />
-
+<br>
 <img width="805" height="161" alt="Screenshot 2026-04-20 145058" src="https://github.com/user-attachments/assets/b24b3b97-5c58-4e5a-9e52-f26c26e68e93" />
 
 ## Bandit 20 → Bandit 21
-There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).
-
+**Objective:** Exchange credentials by establishing a local listener for a SetUID binary.
+* **Concept:** Inter-process communication and background tasks using Netcat.
+  
 <img width="809" height="167" alt="Screenshot 2026-04-20 145359" src="https://github.com/user-attachments/assets/46680315-335f-41f0-bd61-2fb797a3ca9e" />
 
 ## Bandit 21 → Bandit 22
-A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
-
+**Objective:** Analyze a cron job schedule to find where a password-retrieving script is located.
+* **Concept:** Scheduled tasks (cron) and shell script analysis.
+  
 <img width="813" height="248" alt="Screenshot 2026-04-20 145727" src="https://github.com/user-attachments/assets/40e41a7c-7a26-4775-93dc-d4ee86fa40d0" />
 
 ## Bandit 22 → Bandit 23
-A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
-
+**Objective:** Reverse-engineer an automated script that generates passwords via MD5 hashing.
+* **Process:** Replicated the script's logic manually to generate the corresponding password hash for the target user.
+  
 <img width="822" height="303" alt="Screenshot 2026-04-20 150114" src="https://github.com/user-attachments/assets/803ac5d8-57eb-4822-86cb-375fc3f2ed79" />
-
+<br>
 <img width="774" height="125" alt="Screenshot 2026-04-20 150207" src="https://github.com/user-attachments/assets/19adef42-2ac5-422a-b129-a2308ef1394e" />
 
 ## Bandit 23 → Bandit 24
-A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
-
+**Objective:** Deploy a script into a cron-monitored directory to capture credentials.
+* **Concept:** Exploiting automated cron execution through writable directories.
+  
 <img width="899" height="600" alt="Screenshot 2026-04-20 151401" src="https://github.com/user-attachments/assets/aec9a14d-8315-4f54-8670-889f71091f4f" />
-
+<br>
 <img width="960" height="361" alt="Screenshot 2026-04-20 152403" src="https://github.com/user-attachments/assets/1b51d755-ef15-47e7-a7d5-026ff1ea095e" />
-
+<br>
 <img width="687" height="145" alt="Screenshot 2026-04-20 152724" src="https://github.com/user-attachments/assets/2efce61a-bef9-41ea-b3e5-0e33f3cb8210" />
 
 ## Bandit 24 → Bandit 25
-A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing. You do not need to create new connections each time.
-
-<img width="939" height="183" alt="image" src="https://github.com/user-attachments/assets/1e5830de-db19-40e3-a925-
-388bb1ee9b53" />
+**Objective:** Brute-force a 4-digit numeric PIN on a network daemon.
+* **Command:** `for i in {0000..9999}; do echo "[password] $i"; done | nc localhost 30002`
+  
+<img width="939" height="183" alt="image" src="https://github.com/user-attachments/assets/1e5830de-db19-40e3-a925-388bb1ee9b53" />
 
 ## Bandit 25 → Bandit 26
-Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not /bin/bash, but something else. Find out what it is, how it works and how to break out of it.
-
+**Objective:** Perform an environment escape from a restricted shell running `more`.
+* **Concept:** Exploiting interactive pagers. By resizing the terminal to 2 lines, the `more` command pauses, allowing a `v` escape into Vim and subsequently spawning a Bash shell.
+  
 <img width="665" height="229" alt="Screenshot 2026-04-23 164446" src="https://github.com/user-attachments/assets/7a0e71da-f03d-497f-ad15-6618f3ef521d" />
-
+<br>
 <img width="665" height="229" alt="Screenshot 2026-04-23 164446" src="https://github.com/user-attachments/assets/e4b2c31c-4472-45d1-b403-5d2893d83abb" />
 
 ## Bandit 26 → Bandit 27
-Good job getting a shell! Now hurry and grab the password for bandit27!
-
+**Objective:** Extract the Level 27 password using the `bandit27-do` SetUID binary.
+* **Command:** `./bandit27-do cat /etc/bandit_pass/bandit27`
+  
 <img width="713" height="205" alt="image" src="https://github.com/user-attachments/assets/e63d5e3e-337f-4c50-81da-16da2cba073a" />
 
-
 ## Bandit 27 → Bandit 28
-There is a git repository at ssh://bandit27-git@bandit.labs.overthewire.org/home/bandit27-git/repo via the port 2220. The password for the user bandit27-git is the same as for the user bandit27.
-
-From your local machine (not the OverTheWire machine!), clone the repository and find the password for the next level. This needs git installed locally on your machine.
-
+**Objective:** Clone an SSH-hosted Git repository to a local machine.
+* **Concept:** Git repository management over non-standard ports.
+  
 <img width="892" height="406" alt="image" src="https://github.com/user-attachments/assets/6be32f58-5c5f-42e0-84b8-cc127462f32f" />
-
+<br>
 <img width="684" height="353" alt="image" src="https://github.com/user-attachments/assets/7fd69448-51f2-4bda-86db-113c77e553c1" />
 
 ## Bandit 28 → Bandit 29
-There is a git repository at ssh://bandit28-git@bandit.labs.overthewire.org/home/bandit28-git/repo via the port 2220. The password for the user bandit28-git is the same as for the user bandit28.
-
+**Objective:** Investigate Git commit history to find redacted credentials.
+* **Command:** `git log -p`
+  
 <img width="378" height="181" alt="image" src="https://github.com/user-attachments/assets/71c85614-dbf1-4b34-a381-a95b0a1c3ab6" />
-
+<br>
 <img width="936" height="376" alt="image" src="https://github.com/user-attachments/assets/3c696bcc-ee0d-4782-9313-5382818aed72" />
-
+<br>
 <img width="933" height="357" alt="image" src="https://github.com/user-attachments/assets/301a9f4d-c362-4b2e-802f-1ede1306bf8f" />
 
 ## Bandit 29 → Bandit 30
-There is a git repository at ssh://bandit29-git@bandit.labs.overthewire.org/home/bandit29-git/repo via the port 2220. The password for the user bandit29-git is the same as for the user bandit29.
-
+**Objective:** Locate a password hidden in a remote Git branch.
+* **Process:** Used `git branch -a` to view all branches and `git checkout` to switch to the target branch.
+  
 <img width="433" height="189" alt="image" src="https://github.com/user-attachments/assets/0fdb96d1-dc56-4263-996e-563a0c39f70a" />
-
+<br>
 <img width="948" height="610" alt="image" src="https://github.com/user-attachments/assets/69fce6e0-1aae-4d3c-8441-7ddb1f8b4895" />
-
+<br>
 <img width="611" height="360" alt="image" src="https://github.com/user-attachments/assets/411e43a2-497f-4c87-b2e9-bef9277dae72" />
 
 ## Bandit 30 → Bandit 31
-There is a git repository at ssh://bandit30-git@bandit.labs.overthewire.org/home/bandit30-git/repo via the port 2220. The password for the user bandit30-git is the same as for the user bandit30.
+**Objective:** Identify password credentials hidden within Git tags.
+* **Command:** `git tag` followed by `git show [tag_name]`.
 
 <img width="333" height="154" alt="image" src="https://github.com/user-attachments/assets/79359bb7-5af5-4113-9536-e11a45852744" />
 
 ## Bandit 31 → Bandit 32
-There is a git repository at ssh://bandit31-git@bandit.labs.overthewire.org/home/bandit31-git/repo via the port 2220. The password for the user bandit31-git is the same as for the user bandit31.
+**Objective:** Push a required file to the remote repository while bypassing `.gitignore`.
+* **Concept:** Utilizing `git add -f` to force-track ignored files.
 
 <img width="466" height="352" alt="image" src="https://github.com/user-attachments/assets/276760ef-f62f-4224-acf7-978c1fc438b4" />
-
+<br>
 <img width="715" height="509" alt="image" src="https://github.com/user-attachments/assets/3273ba7a-bb5e-4226-80e3-eb396a43ba5a" />
 
 ## Bandit 32 → Bandit 33
+**Objective:** Escape a restricted uppercase-only shell using positional parameters.
+* **Concept:** Invoking the original shell via `$0` to bypass the filter.
 
 <img width="672" height="351" alt="image" src="https://github.com/user-attachments/assets/e1f7fab0-b394-4c94-9e2e-7341f15c61f8" />
