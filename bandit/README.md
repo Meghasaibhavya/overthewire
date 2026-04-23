@@ -855,13 +855,4 @@ This level demonstrates that restricted shells must account for all possible inp
 
 ## Conclusion
 
-Completing the Bandit wargame provided hands-on exposure to a broad range of Linux and cybersecurity fundamentals. The progression from basic file navigation through to privilege escalation, network communication, Git forensics, and shell escape techniques mirrors the skill set required in real-world penetration testing and security engineering roles.
-
-Key takeaways include:
-- The importance of understanding how shells parse input and handle special characters
-- How file permissions and SUID bits can become privilege escalation vectors
-- Why secrets in Git repositories — even deleted ones — persist and remain discoverable
-- How encoding schemes like Base64 and ROT13 provide obfuscation but not security
-- The power and risk of automated scheduling systems like cron when misconfigured
-
-This walkthrough represents a foundation for further study in offensive security, CTF competitions, and systems administration.
+Completing the Bandit wargame provided hands-on exposure to a broad range of Linux and cybersecurity fundamentals. 
